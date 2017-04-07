@@ -1,0 +1,48 @@
+<svg height="718" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="718" fill="#555" width="720"></rect>
+<text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
+<tspan x="10" y="26">└─┬ html-loader@0.4.5 </tspan>
+<tspan x="10" y="42">  ├─┬ es6-templates@0.2.3 </tspan>
+<tspan x="10" y="58">  │ ├─┬ recast@0.11.23 </tspan>
+<tspan x="10" y="74">  │ │ ├── ast-types@0.9.6 </tspan>
+<tspan x="10" y="90">  │ │ ├── esprima@3.1.3 </tspan>
+<tspan x="10" y="106">  │ │ ├── private@0.1.7 </tspan>
+<tspan x="10" y="122">  │ │ └── source-map@0.5.6 </tspan>
+<tspan x="10" y="138">  │ └── through@2.3.8 </tspan>
+<tspan x="10" y="154">  ├── fastparse@1.1.1 </tspan>
+<tspan x="10" y="170">  ├─┬ html-minifier@3.4.2 </tspan>
+<tspan x="10" y="186">  │ ├─┬ camel-case@3.0.0 </tspan>
+<tspan x="10" y="202">  │ │ ├─┬ no-case@2.3.1 </tspan>
+<tspan x="10" y="218">  │ │ │ └── lower-case@1.1.4 </tspan>
+<tspan x="10" y="234">  │ │ └── upper-case@1.1.3 </tspan>
+<tspan x="10" y="250">  │ ├── clean-css@4.0.11 </tspan>
+<tspan x="10" y="266">  │ ├─┬ commander@2.9.0 </tspan>
+<tspan x="10" y="282">  │ │ └── graceful-readlink@1.0.1 </tspan>
+<tspan x="10" y="298">  │ ├── he@1.1.1 </tspan>
+<tspan x="10" y="314">  │ ├─┬ ncname@1.0.0 </tspan>
+<tspan x="10" y="330">  │ │ └── xml-char-classes@1.0.0 </tspan>
+<tspan x="10" y="346">  │ ├── param-case@2.1.1 </tspan>
+<tspan x="10" y="362">  │ ├── relateurl@0.2.7 </tspan>
+<tspan x="10" y="378">  │ └─┬ uglify-js@2.8.21 </tspan>
+<tspan x="10" y="394">  │   ├── uglify-to-browserify@1.0.2 </tspan>
+<tspan x="10" y="410">  │   └─┬ yargs@3.10.0 </tspan>
+<tspan x="10" y="426">  │     ├── camelcase@1.2.1 </tspan>
+<tspan x="10" y="442">  │     ├─┬ cliui@2.1.0 </tspan>
+<tspan x="10" y="458">  │     │ ├─┬ center-align@0.1.3 </tspan>
+<tspan x="10" y="474">  │     │ │ ├─┬ align-text@0.1.4 </tspan>
+<tspan x="10" y="490">  │     │ │ │ ├─┬ kind-of@3.1.0 </tspan>
+<tspan x="10" y="506">  │     │ │ │ │ └── is-buffer@1.1.5 </tspan>
+<tspan x="10" y="522">  │     │ │ │ ├── longest@1.0.1 </tspan>
+<tspan x="10" y="538">  │     │ │ │ └── repeat-string@1.6.1 </tspan>
+<tspan x="10" y="554">  │     │ │ └── lazy-cache@1.0.4 </tspan>
+<tspan x="10" y="570">  │     │ ├── right-align@0.1.3 </tspan>
+<tspan x="10" y="586">  │     │ └── wordwrap@0.0.2 </tspan>
+<tspan x="10" y="602">  │     ├── decamelize@1.2.0 </tspan>
+<tspan x="10" y="618">  │     └── window-size@0.1.0 </tspan>
+<tspan x="10" y="634">  ├─┬ loader-utils@1.1.0 </tspan>
+<tspan x="10" y="650">  │ ├── big.js@3.1.3 </tspan>
+<tspan x="10" y="666">  │ ├── emojis-list@2.1.0 </tspan>
+<tspan x="10" y="682">  │ └── json5@0.5.1 </tspan>
+<tspan x="10" y="698">  └── object-assign@4.1.1</tspan>
+</text>
+</svg>
