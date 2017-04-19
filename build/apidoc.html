@@ -61,12 +61,149 @@
 
     <li class="apidocModuleLi"><a href="#apidoc.module.html-loader">module html-loader</a><ol>
 
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.html-loader.html-loader">
+            function <span class="apidocSignatureSpan"></span>html-loader
+            <span class="apidocSignatureSpan">(content)</span>
+            </a>
+
+        </li>
+
     </ol></li>
 
 </ol></div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.html-loader" id="apidoc.module.html-loader">module html-loader</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.html-loader.html-loader" id="apidoc.element.html-loader.html-loader">
+        function <span class="apidocSignatureSpan"></span>html-loader
+        <span class="apidocSignatureSpan">(content)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">html-loader = function (content) {
+	this.cacheable &#x26;&#x26; this.cacheable();
+	var config = getLoaderConfig(this);
+	var attributes = [&#x22;img:src&#x22;];
+	if(config.attrs !== undefined) {
+		if(typeof config.attrs === &#x22;string&#x22;)
+			attributes = config.attrs.split(&#x22; &#x22;);
+		else if(Array.isArray(config.attrs))
+			attributes = config.attrs;
+		else if(config.attrs === false)
+			attributes = [];
+		else
+			throw new Error(&#x22;Invalid value to config parameter attrs&#x22;);
+	}
+	var root = config.root;
+	var links = attrParse(content, function(tag, attr) {
+		return attributes.indexOf(tag + &#x22;:&#x22; + attr) &#x3e;= 0;
+	});
+	links.reverse();
+	var data = {};
+	content = [content];
+	links.forEach(function(link) {
+		if(!loaderUtils.isUrlRequest(link.value, root)) return;
+
+		var uri = url.parse(link.value);
+		if (uri.hash !== null &#x26;&#x26; uri.hash !== undefined) {
+			uri.hash = null;
+			link.value = uri.format();
+			link.length = link.value.length;
+		}
+
+		do {
+			var ident = randomIdent();
+		} while(data[ident]);
+		data[ident] = link.value;
+		var x = content.pop();
+		content.push(x.substr(link.start + link.length));
+		content.push(ident);
+		content.push(x.substr(0, link.start));
+	});
+	content.reverse();
+	content = content.join(&#x22;&#x22;);
+
+	if (config.interpolate === &#x27;require&#x27;){
+
+		var reg = /\$\{require\([^)]*\)\}/g;
+		var result;
+		var reqList = [];
+		while(result = reg.exec(content)){
+			reqList.push({
+				length : result[0].length,
+				start : result.index,
+				value : result[0]
+			})
+		}
+		reqList.reverse();
+		content = [content];
+		reqList.forEach(function(link) {
+			var x = content.pop();
+			do {
+				var ident = randomIdent();
+			} while(data[ident]);
+			data[ident] = link.value.substring(11,link.length - 3)
+			content.push(x.substr(link.start + link.length));
+			content.push(ident);
+			content.push(x.substr(0, link.start));
+		});
+		content.reverse();
+		content = content.join(&#x22;&#x22;);
+	}
+
+	if(typeof config.minimize === &#x22;boolean&#x22; ? config.minimize : this.minimize) {
+		var minimizeOptions = assign({}, config);
+
+		[
+			&#x22;removeComments&#x22;,
+			&#x22;removeCommentsFromCDATA&#x22;,
+			&#x22;removeCDATASectionsFromCDATA&#x22;,
+			&#x22;collapseWhitespace&#x22;,
+			&#x22;conservativeCollapse&#x22;,
+			&#x22;removeAttributeQuotes&#x22;,
+			&#x22;useShortDoctype&#x22;,
+			&#x22;keepClosingSlash&#x22;,
+			&#x22;minifyJS&#x22;,
+			&#x22;minifyCSS&#x22;,
+			&#x22;removeScriptTypeAttributes&#x22;,
+			&#x22;removeStyleTypeAttributes&#x22;,
+		].forEach(function(name) {
+			if(typeof minimizeOptions[name] === &#x22;undefined&#x22;) {
+				minimizeOptions[name] = true;
+			}
+		});
+
+		content = htmlMinifier.minify(content, minimizeOptions);
+	}
+
+	if(config.interpolate &#x26;&#x26; config.interpolate !== &#x27;require&#x27;) {
+		content = compile(&#x27;`&#x27; + content + &#x27;`&#x27;).code;
+	} else {
+		content = JSON.stringify(content);
+	}
+
+    var exportsString = &#x22;module.exports = &#x22;;
+	if (config.exportAsDefault) {
+        exportsString = &#x22;exports.default = &#x22;;
+
+	} else if (config.exportAsEs6Default) {
+        exportsString = &#x22;export default &#x22;;
+	}
+
+ 	return exportsString + content.replace(/xxxHTMLLINKxxx[0-9\.]+xxx/g, function(match) {
+		if(!data[match]) return match;
+		return &#x27;&#x22; + require(&#x27; + JSON.stringify(loaderUtils.urlToRequest(data[match], root)) + &#x27;) + &#x22;&#x27;;
+	}) + &#x22;;&#x22;;
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 </div>
 

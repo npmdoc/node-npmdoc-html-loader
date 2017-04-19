@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/webpack/html-loader#readme"
-
-    >html-loader (v0.4.5)</a>
+    <a href="https://github.com/webpack/html-loader#readme">html-loader (v0.4.5)</a>
 </h1>
 <h4>html loader module for webpack</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.html-loader">module html-loader</a><ol>
 
@@ -86,22 +79,22 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">html-loader = function (content) {
-	this.cacheable &#x26;&#x26; this.cacheable();
+	this.cacheable &amp;&amp; this.cacheable();
 	var config = getLoaderConfig(this);
-	var attributes = [&#x22;img:src&#x22;];
+	var attributes = ["img:src"];
 	if(config.attrs !== undefined) {
-		if(typeof config.attrs === &#x22;string&#x22;)
-			attributes = config.attrs.split(&#x22; &#x22;);
+		if(typeof config.attrs === "string")
+			attributes = config.attrs.split(" ");
 		else if(Array.isArray(config.attrs))
 			attributes = config.attrs;
 		else if(config.attrs === false)
 			attributes = [];
 		else
-			throw new Error(&#x22;Invalid value to config parameter attrs&#x22;);
+			throw new Error("Invalid value to config parameter attrs");
 	}
 	var root = config.root;
 	var links = attrParse(content, function(tag, attr) {
-		return attributes.indexOf(tag + &#x22;:&#x22; + attr) &#x3e;= 0;
+		return attributes.indexOf(tag + ":" + attr) &gt;= 0;
 	});
 	links.reverse();
 	var data = {};
@@ -110,7 +103,7 @@
 		if(!loaderUtils.isUrlRequest(link.value, root)) return;
 
 		var uri = url.parse(link.value);
-		if (uri.hash !== null &#x26;&#x26; uri.hash !== undefined) {
+		if (uri.hash !== null &amp;&amp; uri.hash !== undefined) {
 			uri.hash = null;
 			link.value = uri.format();
 			link.length = link.value.length;
@@ -126,9 +119,9 @@
 		content.push(x.substr(0, link.start));
 	});
 	content.reverse();
-	content = content.join(&#x22;&#x22;);
+	content = content.join("");
 
-	if (config.interpolate === &#x27;require&#x27;){
+	if (config.interpolate === 'require'){
 
 		var reg = /\$\{require\([^)]*\)\}/g;
 		var result;
@@ -153,27 +146,27 @@
 			content.push(x.substr(0, link.start));
 		});
 		content.reverse();
-		content = content.join(&#x22;&#x22;);
+		content = content.join("");
 	}
 
-	if(typeof config.minimize === &#x22;boolean&#x22; ? config.minimize : this.minimize) {
+	if(typeof config.minimize === "boolean" ? config.minimize : this.minimize) {
 		var minimizeOptions = assign({}, config);
 
 		[
-			&#x22;removeComments&#x22;,
-			&#x22;removeCommentsFromCDATA&#x22;,
-			&#x22;removeCDATASectionsFromCDATA&#x22;,
-			&#x22;collapseWhitespace&#x22;,
-			&#x22;conservativeCollapse&#x22;,
-			&#x22;removeAttributeQuotes&#x22;,
-			&#x22;useShortDoctype&#x22;,
-			&#x22;keepClosingSlash&#x22;,
-			&#x22;minifyJS&#x22;,
-			&#x22;minifyCSS&#x22;,
-			&#x22;removeScriptTypeAttributes&#x22;,
-			&#x22;removeStyleTypeAttributes&#x22;,
+			"removeComments",
+			"removeCommentsFromCDATA",
+			"removeCDATASectionsFromCDATA",
+			"collapseWhitespace",
+			"conservativeCollapse",
+			"removeAttributeQuotes",
+			"useShortDoctype",
+			"keepClosingSlash",
+			"minifyJS",
+			"minifyCSS",
+			"removeScriptTypeAttributes",
+			"removeStyleTypeAttributes",
 		].forEach(function(name) {
-			if(typeof minimizeOptions[name] === &#x22;undefined&#x22;) {
+			if(typeof minimizeOptions[name] === "undefined") {
 				minimizeOptions[name] = true;
 			}
 		});
@@ -181,24 +174,24 @@
 		content = htmlMinifier.minify(content, minimizeOptions);
 	}
 
-	if(config.interpolate &#x26;&#x26; config.interpolate !== &#x27;require&#x27;) {
-		content = compile(&#x27;`&#x27; + content + &#x27;`&#x27;).code;
+	if(config.interpolate &amp;&amp; config.interpolate !== 'require') {
+		content = compile('`' + content + '`').code;
 	} else {
 		content = JSON.stringify(content);
 	}
 
-    var exportsString = &#x22;module.exports = &#x22;;
+    var exportsString = "module.exports = ";
 	if (config.exportAsDefault) {
-        exportsString = &#x22;exports.default = &#x22;;
+        exportsString = "exports.default = ";
 
 	} else if (config.exportAsEs6Default) {
-        exportsString = &#x22;export default &#x22;;
+        exportsString = "export default ";
 	}
 
  	return exportsString + content.replace(/xxxHTMLLINKxxx[0-9\.]+xxx/g, function(match) {
 		if(!data[match]) return match;
-		return &#x27;&#x22; + require(&#x27; + JSON.stringify(loaderUtils.urlToRequest(data[match], root)) + &#x27;) + &#x22;&#x27;;
-	}) + &#x22;;&#x22;;
+		return '" + require(' + JSON.stringify(loaderUtils.urlToRequest(data[match], root)) + ') + "';
+	}) + ";";
 
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -213,3 +206,4 @@
     ]
 </div>
 </div>
+</body></html>
