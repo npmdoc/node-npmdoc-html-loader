@@ -1,9 +1,14 @@
-# api documentation for  [html-loader (v0.4.5)](https://github.com/webpack/html-loader#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-html-loader.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-html-loader) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-html-loader.svg)](https://travis-ci.org/npmdoc/node-npmdoc-html-loader)
+# npmdoc-html-loader
+
+#### api documentation for  [html-loader (v0.4.5)](https://github.com/webpack/html-loader#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-html-loader.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-html-loader) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-html-loader.svg)](https://travis-ci.org/npmdoc/node-npmdoc-html-loader)
+
 #### html loader module for webpack
 
-[![NPM](https://nodei.co/npm/html-loader.png?downloads=true)](https://www.npmjs.com/package/html-loader)
+[![NPM](https://nodei.co/npm/html-loader.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/html-loader)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-html-loader/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-html-loader_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-html-loader/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-html-loader/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-html-loader/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-html-loader/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-html-loader/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-html-loader/build/screenCapture.npmPackageListing.svg)
 
@@ -49,41 +54,32 @@
     "license": "MIT",
     "maintainers": [
         {
-            "name": "bebraw",
-            "email": "bebraw@gmail.com"
+            "name": "bebraw"
         },
         {
-            "name": "d3viant0ne",
-            "email": "wiens.joshua@gmail.com"
+            "name": "d3viant0ne"
         },
         {
-            "name": "ericclemmons",
-            "email": "eric@smarterspam.com"
+            "name": "ericclemmons"
         },
         {
-            "name": "hemanth",
-            "email": "hemanth.hm@gmail.com"
+            "name": "hemanth"
         },
         {
-            "name": "jhnns",
-            "email": "mail@johannesewald.de"
+            "name": "jhnns"
         },
         {
-            "name": "peerigon",
-            "email": "developers@peerigon.com"
+            "name": "peerigon"
         },
         {
-            "name": "sokra",
-            "email": "tobias.koppers@googlemail.com"
+            "name": "sokra"
         },
         {
-            "name": "thelarkinn",
-            "email": "sean.larkin@cuw.edu"
+            "name": "thelarkinn"
         }
     ],
     "name": "html-loader",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git+ssh://git@github.com/webpack/html-loader.git"
@@ -102,16 +98,6 @@
     "version": "0.4.5"
 }
 ```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module html-loader](#apidoc.module.html-loader)
-
-
-
-# <a name="apidoc.module.html-loader"></a>[module html-loader](#apidoc.module.html-loader)
 
 
 
